@@ -1,9 +1,9 @@
-//const express = require('express')
-import bodyParser from "body-parser"
-import cookieParser from "cookie-parser"
-import express from "express"
-import helmet from "helmet"
-import morgan from "morgan"
+// const express = require('express')
+import bodyParser from 'body-parser'
+import cookieParser from 'cookie-parser'
+import express from 'express'
+import helmet from 'helmet'
+import morgan from 'morgan'
 
 
 const app = express()
@@ -26,20 +26,20 @@ function handleProfile(req,res) {
 */
 const handleListening = () => console.log(`Listening on: http://localhost:${PORT}`)
 
-const handleHome = (req,res) => res.send("Hello from Young")
+const handleHome = (req, res) => res.send('Hello from Young')
 
-const handleProfile = (req,res) => res.send("You are on my profile")
+const handleProfile = (req, res) => res.send('You are on my profile')
 
 app.use(cookieParser())
 app.use(bodyParser.json())
-//eslint-disable-next-line quote-props
-app.use(bodyParser.urlencoded({extended: true}))
+// eslint-disable-next-line quote-props
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(helmet())
-app.use(morgan("dev"))
+app.use(morgan('dev'))
 
-app.get("/", handleHome)
+app.get('/', handleHome)
 
-app.get("/profile", handleProfile)
+app.get('/profile', handleProfile)
 
 app.listen(PORT, handleListening)
 /*
